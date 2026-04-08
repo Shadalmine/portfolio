@@ -1,0 +1,149 @@
+<style>
+  /* Typing cursor blink */
+  .cursor {
+    display: inline-block;
+    width: 3px;
+    height: 1em;
+    background: #ffffff;
+    margin-left: 4px;
+    vertical-align: middle;
+    animation: blink 0.8s step-end infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+  }
+
+  /* Oval border around "cover" */
+  .cover-word {
+    position: relative;
+    display: inline-block;
+    color: #a78bfa;
+    padding: 0 12px;
+  }
+
+  .cover-word::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 115%;
+    height: 140%;
+    border: 2px solid #7c3aed;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  /* Avatar purple glow */
+  .avatar-glow {
+    filter: drop-shadow(0 0 40px rgba(124, 58, 237, 0.6));
+  }
+
+  /* Fade up animation */
+  @keyframes fade-up {
+    0%   { opacity: 0; transform: translateY(24px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-up-1 { animation: fade-up 0.7s ease 0.1s both; }
+  .fade-up-2 { animation: fade-up 0.7s ease 0.3s both; }
+  .fade-up-3 { animation: fade-up 0.7s ease 0.5s both; }
+  .fade-up-4 { animation: fade-up 0.7s ease 0.7s both; }
+  .fade-up-5 { animation: fade-up 0.7s ease 0.9s both; }
+  .fade-up-6 { animation: fade-up 0.7s ease 1.1s both; }
+</style>
+
+<section style="background: #0a0814; min-height: 100vh; padding: 5rem 2rem 4rem;
+                font-family: 'Inter', sans-serif; color: #ffffff;">
+
+  <div style="max-width: 1100px; margin: 0 auto;">
+
+    <!-- Top block: avatar + headline -->
+    <div style="display: flex; align-items: flex-start; gap: 2.5rem; margin-bottom: 4rem; flex-wrap: wrap;">
+
+      <!-- Avatar -->
+      <div class="avatar-glow fade-up-1"
+           style="flex-shrink: 0; width: 160px; height: 160px; border-radius: 50%; overflow: hidden;
+                  background: linear-gradient(135deg, #1e1040, #2d1b69);
+                  display: flex; align-items: center; justify-content: center;">
+        <!-- Replace src with your actual avatar image -->
+        <img src="assets/avatar.png"
+             alt="Avatar"
+             style="width: 100%; height: 100%; object-fit: cover;"
+             onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'font-size:5rem;\'>👨‍💻</span>'"/>
+      </div>
+
+      <!-- Headline text -->
+      <div style="flex: 1; min-width: 280px;">
+        <p class="fade-up-2"
+           style="font-size: 1.1rem; font-weight: 300; color: rgba(255,255,255,0.7);
+                  margin: 0 0 0.5rem; letter-spacing: 0.02em;">
+          A Developer who
+        </p>
+
+        <h1 class="fade-up-3"
+            style="font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 800;
+                   line-height: 1.1; margin: 0 0 0.25rem; letter-spacing: -0.02em;">
+          Judges a book
+        </h1>
+
+        <h1 class="fade-up-3"
+            style="font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 800;
+                   line-height: 1.1; margin: 0 0 1rem; letter-spacing: -0.02em;">
+          by its <span class="cover-word">cover</span>...
+        </h1>
+
+        <p class="fade-up-4"
+           style="font-size: 0.95rem; font-weight: 300; color: rgba(255,255,255,0.55);
+                  margin: 0; letter-spacing: 0.01em;">
+          Because if the cover does not impress you what else can?
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Divider -->
+    <hr class="fade-up-4"
+        style="border: none; border-top: 1px solid rgba(255,255,255,0.08); margin-bottom: 3rem;">
+
+    <!-- Bottom block: typing + description -->
+    <div>
+
+      <!-- Typing headline -->
+      <h2 class="fade-up-5"
+          style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 800;
+                 margin: 0 0 1rem; letter-spacing: -0.02em; display: flex; align-items: center;">
+        I'm a {{ typedText }}<span class="cursor"></span>
+      </h2>
+
+      <!-- Currently at -->
+      <p class="fade-up-5"
+         style="font-size: 1.05rem; font-weight: 300; color: rgba(255,255,255,0.75);
+                margin: 0 0 2rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+        Currently, I'm a Software Engineer at
+        <span style="display: inline-flex; align-items: center; gap: 0.4rem; color: #60a5fa; font-weight: 400;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+               style="display:inline-block; vertical-align: middle;">
+            <circle cx="12" cy="12" r="10" stroke="#60a5fa" stroke-width="1.5"/>
+            <path d="M8 12a4 4 0 1 0 8 0 4 4 0 0 0-8 0" fill="#60a5fa" opacity="0.3"/>
+            <circle cx="12" cy="12" r="2" fill="#60a5fa"/>
+          </svg>
+          WebHR,
+        </span>
+      </p>
+
+      <!-- Description -->
+      <p class="fade-up-6"
+         style="font-size: 1.05rem; font-weight: 300; color: rgba(255,255,255,0.6);
+                line-height: 1.8; max-width: 600px; margin: 0;">
+        A self-taught UI/UX designer, functioning in the industry for 3+ years now. 
+        I make meaningful and delightful digital products that create
+        an equilibrium between user needs and business goals.
+      </p>
+
+    </div>
+
+  </div>
+</section>
