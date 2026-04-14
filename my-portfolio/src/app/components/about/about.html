@@ -1,1 +1,233 @@
-<p>about works!</p>
+<style>
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .skill-tag {
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.2) 0%, rgba(91, 33, 182, 0.1) 100%);
+    border: 1px solid rgba(124, 58, 237, 0.4);
+    transition: all 0.3s ease;
+  }
+
+  .skill-tag:hover {
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.3) 0%, rgba(91, 33, 182, 0.2) 100%);
+    border-color: rgba(124, 58, 237, 0.8);
+    transform: translateY(-4px);
+  }
+
+  .experience-card {
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.1) 0%, rgba(91, 33, 182, 0.08) 100%);
+    border: 1px solid rgba(124, 58, 237, 0.3);
+    transition: all 0.4s ease;
+  }
+
+  .experience-card:hover {
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.15) 0%, rgba(91, 33, 182, 0.12) 100%);
+    border-color: rgba(124, 58, 237, 0.6);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(124, 58, 237, 0.15);
+  }
+
+  @media (max-width: 768px) {
+    .experience-grid {
+      grid-template-columns: 1fr !important;
+    }
+
+    .tech-icons {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+</style>
+
+<section style="background: linear-gradient(180deg, rgba(10, 8, 20, 1) 0%, rgba(15, 10, 30, 1) 100%);
+           min-height: 100vh; padding: 6rem 2rem; position: relative; overflow: hidden;
+           font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+           color: #ffffff;">
+
+  <!-- Background animated elements -->
+  <div style="position: absolute; top: -50%; right: -20%; width: 600px; height: 600px;
+              background: radial-gradient(circle, rgba(124, 58, 237, 0.1) 0%, transparent 70%);
+              border-radius: 50%; animation: float 10s ease-in-out infinite;
+              pointer-events: none;"></div>
+
+  <div style="position: absolute; bottom: -50%; left: -20%; width: 500px; height: 500px;
+              background: radial-gradient(circle, rgba(168, 85, 247, 0.08) 0%, transparent 70%);
+              border-radius: 50%; animation: float 12s ease-in-out infinite;
+              pointer-events: none;"></div>
+
+  <div style="max-width: 1200px; margin: 0 auto; position: relative; z-index: 1;">
+
+    <!-- About Me Content at Top -->
+    <div style="max-width: 900px; margin: 0 auto 6rem; animation: fade-up 0.8s ease both;">
+      <h1 style="font-size: 2.5rem; font-weight: 800; margin: 0 0 2rem;
+                 letter-spacing: -0.02em;">About Me</h1>
+
+      <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+        <p style="font-size: 1rem; font-weight: 300; color: rgba(255, 255, 255, 0.75);
+                  line-height: 1.8; margin: 0;">
+          I'm a Computer Engineering student with a strong focus on full-stack development and embedded systems. 
+          During my internship at Liteclerk Corporation, I worked on enhancing and developing user interfaces using 
+          Tailwind CSS, while building scalable frontend applications with Angular and TypeScript.
+        </p>
+
+        <p style="font-size: 1rem; font-weight: 300; color: rgba(255, 255, 255, 0.75);
+                  line-height: 1.8; margin: 0;">
+          I have hands-on experience integrating APIs using Swagger and working with MongoDB, giving me a solid 
+          foundation in modern web development workflows. I'm comfortable collaborating across frontend and backend 
+          systems to deliver efficient and user-centered solutions.
+        </p>
+
+        <p style="font-size: 1rem; font-weight: 300; color: rgba(255, 255, 255, 0.75);
+                  line-height: 1.8; margin: 0;">
+          My thesis project, an autonomous smart sweeper, reflects my ability to design and develop hardware-software 
+          integrated systems. I also actively build embedded projects using Arduino, ESP modules, and various sensors, 
+          driven by my passion for automation and intelligent systems.
+        </p>
+
+        <p style="font-size: 1rem; font-weight: 300; color: rgba(255, 255, 255, 0.75);
+                  line-height: 1.8; margin: 0;">
+          I'm a problem-solver at heart, motivated by building technologies that create real-world impact. My goal is 
+          to grow as a full-stack and robotics engineer, contributing to innovative systems that bridge software and hardware.
+        </p>
+      </div>
+    </div>
+
+    <!-- Skills Section -->
+    <div style="margin-bottom: 6rem; animation: fade-up 0.8s ease 0.2s both;">
+      <h2 style="font-size: 2rem; font-weight: 700; margin: 0 0 3rem;
+                 letter-spacing: -0.01em;">Skills & Technologies</h2>
+
+      <div class="tech-icons"
+           style="display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: flex-start;">
+
+        <div class="skill-tag"
+             style="padding: 0.8rem 1.5rem; border-radius: 20px;
+                    display: inline-flex; align-items: center; gap: 0.5rem;
+                    font-size: 0.9rem; font-weight: 500;">
+          <span>🏗️</span> HTML
+        </div>
+
+        <div class="skill-tag"
+             style="padding: 0.8rem 1.5rem; border-radius: 20px;
+                    display: inline-flex; align-items: center; gap: 0.5rem;
+                    font-size: 0.9rem; font-weight: 500;">
+          <span>🎨</span> CSS
+        </div>
+
+        <div class="skill-tag"
+             style="padding: 0.8rem 1.5rem; border-radius: 20px;
+                    display: inline-flex; align-items: center; gap: 0.5rem;
+                    font-size: 0.9rem; font-weight: 500;">
+          <span>⚡</span> JavaScript
+        </div>
+
+        <div class="skill-tag"
+             style="padding: 0.8rem 1.5rem; border-radius: 20px;
+                    display: inline-flex; align-items: center; gap: 0.5rem;
+                    font-size: 0.9rem; font-weight: 500;">
+          <span>⚛️</span> Angular
+        </div>
+
+        <div class="skill-tag"
+             style="padding: 0.8rem 1.5rem; border-radius: 20px;
+                    display: inline-flex; align-items: center; gap: 0.5rem;
+                    font-size: 0.9rem; font-weight: 500;">
+          <span>📘</span> TypeScript
+        </div>
+
+        <div class="skill-tag"
+             style="padding: 0.8rem 1.5rem; border-radius: 20px;
+                    display: inline-flex; align-items: center; gap: 0.5rem;
+                    font-size: 0.9rem; font-weight: 500;">
+          <span>⚙️</span> C++
+        </div>
+
+        <div class="skill-tag"
+             style="padding: 0.8rem 1.5rem; border-radius: 20px;
+                    display: inline-flex; align-items: center; gap: 0.5rem;
+                    font-size: 0.9rem; font-weight: 500;">
+          <span>💨</span> Tailwind CSS
+        </div>
+
+        <div class="skill-tag"
+             style="padding: 0.8rem 1.5rem; border-radius: 20px;
+                    display: inline-flex; align-items: center; gap: 0.5rem;
+                    font-size: 0.9rem; font-weight: 500;">
+          <span>🔀</span> Git
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Experience Cards -->
+    <div style="animation: fade-up 0.8s ease 0.3s both;">
+      <h2 style="font-size: 2rem; font-weight: 700; margin: 0 0 3rem;
+                 letter-spacing: -0.01em;">What I Do</h2>
+
+      <div class="experience-grid"
+           style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                  gap: 2rem; margin: 0;">
+
+        <div class="experience-card"
+             style="padding: 2.5rem; border-radius: 16px;">
+          <div style="font-size: 3rem; margin-bottom: 1rem;">💻</div>
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin: 0 0 1rem;
+                     letter-spacing: -0.01em;">Full-Stack Development</h3>
+          <p style="font-size: 0.95rem; font-weight: 300; color: rgba(255, 255, 255, 0.65);
+                    line-height: 1.6; margin: 0;">
+            Building scalable frontend applications with Angular and TypeScript, integrating with backend APIs and databases
+          </p>
+        </div>
+
+        <div class="experience-card"
+             style="padding: 2.5rem; border-radius: 16px;">
+          <div style="font-size: 3rem; margin-bottom: 1rem;">⚙️</div>
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin: 0 0 1rem;
+                     letter-spacing: -0.01em;">Embedded Systems</h3>
+          <p style="font-size: 0.95rem; font-weight: 300; color: rgba(255, 255, 255, 0.65);
+                    line-height: 1.6; margin: 0;">
+            Designing and developing hardware-software integrated systems with Arduino, ESP modules, and various sensors
+          </p>
+        </div>
+
+        <div class="experience-card"
+             style="padding: 2.5rem; border-radius: 16px;">
+          <div style="font-size: 3rem; margin-bottom: 1rem;">🎯</div>
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin: 0 0 1rem;
+                     letter-spacing: -0.01em;">UI/UX Design</h3>
+          <p style="font-size: 0.95rem; font-weight: 300; color: rgba(255, 255, 255, 0.65);
+                    line-height: 1.6; margin: 0;">
+            Creating user-centered interfaces with Tailwind CSS and modern design principles for responsive applications
+          </p>
+        </div>
+
+        <div class="experience-card"
+             style="padding: 2.5rem; border-radius: 16px;">
+          <div style="font-size: 3rem; margin-bottom: 1rem;">🔌</div>
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin: 0 0 1rem;
+                     letter-spacing: -0.01em;">API Integration</h3>
+          <p style="font-size: 0.95rem; font-weight: 300; color: rgba(255, 255, 255, 0.65);
+                    line-height: 1.6; margin: 0;">
+            Working with Swagger documentation and integrating RESTful APIs for seamless data flow between systems
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</section>

@@ -1,0 +1,9 @@
+/* 3D Icon Bookmark Effect */
+.icon-bookmark {
+  perspective: 1000px;
+}
+
+.icon-bookmark-inner {
+  transform-style: preserve-3d;
+  transform: rotateY(-15deg);
+}

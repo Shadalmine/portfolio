@@ -53,9 +53,51 @@
   .fade-up-4 { animation: fade-up 0.7s ease 0.7s both; }
   .fade-up-5 { animation: fade-up 0.7s ease 0.9s both; }
   .fade-up-6 { animation: fade-up 0.7s ease 1.1s both; }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  .skill-tag {
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.2) 0%, rgba(91, 33, 182, 0.1) 100%);
+    border: 1px solid rgba(124, 58, 237, 0.4);
+    transition: all 0.3s ease;
+  }
+
+  .skill-tag:hover {
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.3) 0%, rgba(91, 33, 182, 0.2) 100%);
+    border-color: rgba(124, 58, 237, 0.8);
+    transform: translateY(-4px);
+  }
+
+  .experience-card {
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.1) 0%, rgba(91, 33, 182, 0.08) 100%);
+    border: 1px solid rgba(124, 58, 237, 0.3);
+    transition: all 0.4s ease;
+  }
+
+  .experience-card:hover {
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.15) 0%, rgba(91, 33, 182, 0.12) 100%);
+    border-color: rgba(124, 58, 237, 0.6);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(124, 58, 237, 0.15);
+  }
+
+  @media (max-width: 768px) {
+    .experience-grid {
+      grid-template-columns: 1fr !important;
+    }
+
+    .tech-icons {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
 </style>
 
-<section style="background: #0a0814; min-height: 100vh; padding: 5rem 2rem 4rem;
+<!-- HERO SECTION -->
+<section id="hero-section" style="background: #0a0814; min-height: 100vh; padding: 5rem 2rem 4rem;
                 font-family: 'Inter', sans-serif; color: #ffffff;">
 
   <div style="max-width: 1100px; margin: 0 auto;">
@@ -68,11 +110,9 @@
            style="flex-shrink: 0; width: 160px; height: 160px; border-radius: 50%; overflow: hidden;
                   background: linear-gradient(135deg, #1e1040, #2d1b69);
                   display: flex; align-items: center; justify-content: center;">
-        <!-- Replace src with your actual avatar image -->
-        <img src="assets/avatar.png"
+        <img src="AVA.png"
              alt="Avatar"
-             style="width: 100%; height: 100%; object-fit: cover;"
-             onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'font-size:5rem;\'>👨‍💻</span>'"/>
+             style="width: 100%; height: 100%; object-fit: cover;" />
       </div>
 
       <!-- Headline text -->
@@ -86,19 +126,19 @@
         <h1 class="fade-up-3"
             style="font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 800;
                    line-height: 1.1; margin: 0 0 0.25rem; letter-spacing: -0.02em;">
-          Judges a book
+          prioritizes clean  
         </h1>
 
         <h1 class="fade-up-3"
             style="font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 800;
                    line-height: 1.1; margin: 0 0 1rem; letter-spacing: -0.02em;">
-          by its <span class="cover-word">cover</span>...
+          and<span class="cover-word">effective design</span>...
         </h1>
 
         <p class="fade-up-4"
            style="font-size: 0.95rem; font-weight: 300; color: rgba(255,255,255,0.55);
                   margin: 0; letter-spacing: 0.01em;">
-          Because if the cover does not impress you what else can?
+          because well-structured visuals reflect well-structured code.
         </p>
       </div>
 
@@ -122,7 +162,7 @@
       <p class="fade-up-5"
          style="font-size: 1.05rem; font-weight: 300; color: rgba(255,255,255,0.75);
                 margin: 0 0 2rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-        Currently, I'm a Software Engineer at
+        Graduated Computer Engineers | Currently at Liteclerk Corporation
         <span style="display: inline-flex; align-items: center; gap: 0.4rem; color: #60a5fa; font-weight: 400;">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
                style="display:inline-block; vertical-align: middle;">
@@ -130,7 +170,7 @@
             <path d="M8 12a4 4 0 1 0 8 0 4 4 0 0 0-8 0" fill="#60a5fa" opacity="0.3"/>
             <circle cx="12" cy="12" r="2" fill="#60a5fa"/>
           </svg>
-          WebHR,
+         
         </span>
       </p>
 
@@ -138,12 +178,263 @@
       <p class="fade-up-6"
          style="font-size: 1.05rem; font-weight: 300; color: rgba(255,255,255,0.6);
                 line-height: 1.8; max-width: 600px; margin: 0;">
-        A self-taught UI/UX designer, functioning in the industry for 3+ years now. 
-        I make meaningful and delightful digital products that create
-        an equilibrium between user needs and business goals.
+        A UI/UX designer and recent graduate passionate about building thoughtful, user-focused digital experiences. 
+        I design with purpose—balancing usability, aesthetics, and business impact.
       </p>
 
     </div>
 
   </div>
+</section>
+
+<!-- Work Experience Component -->
+<app-work-experience></app-work-experience>
+
+<!-- ABOUT SECTION -->
+<section id="about-section" style="background: linear-gradient(180deg, rgba(10, 8, 20, 1) 0%, rgba(15, 10, 30, 1) 100%);
+           padding: 6rem 2rem; position: relative; overflow: hidden;
+           font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+           color: #ffffff;">
+
+  <!-- Background animated elements -->
+  <div style="position: absolute; top: -50%; right: -20%; width: 600px; height: 600px;
+              background: radial-gradient(circle, rgba(124, 58, 237, 0.1) 0%, transparent 70%);
+              border-radius: 50%; animation: float 10s ease-in-out infinite;
+              pointer-events: none;"></div>
+
+  <div style="position: absolute; bottom: -50%; left: -20%; width: 500px; height: 500px;
+              background: radial-gradient(circle, rgba(168, 85, 247, 0.08) 0%, transparent 70%);
+              border-radius: 50%; animation: float 12s ease-in-out infinite;
+              pointer-events: none;"></div>
+
+  <style>
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+  </style>
+
+  <div style="max-width: 1200px; margin: 0 auto; position: relative; z-index: 1;">
+
+    <!-- About Me Content -->
+    <div style="max-width: 900px; margin: 0 auto 6rem; animation: fade-up 0.8s ease both;">
+      <h1 style="font-size: 2.5rem; font-weight: 800; margin: 0 0 2rem;
+                 letter-spacing: -0.02em;">About Me</h1>
+
+      <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+        <p style="font-size: 1rem; font-weight: 300; color: rgba(255, 255, 255, 0.75);
+                  line-height: 1.8; margin: 0;">
+          I'm a Computer Engineering student with a strong focus on full-stack development and embedded systems. 
+          During my internship at Liteclerk Corporation, I worked on enhancing and developing user interfaces using 
+          Tailwind CSS, while building scalable frontend applications with Angular and TypeScript.
+        </p>
+
+        <p style="font-size: 1rem; font-weight: 300; color: rgba(255, 255, 255, 0.75);
+                  line-height: 1.8; margin: 0;">
+          I have hands-on experience integrating APIs using Swagger and working with MongoDB, giving me a solid 
+          foundation in modern web development workflows. I'm comfortable collaborating across frontend and backend 
+          systems to deliver efficient and user-centered solutions.
+        </p>
+
+        <p style="font-size: 1rem; font-weight: 300; color: rgba(255, 255, 255, 0.75);
+                  line-height: 1.8; margin: 0;">
+          My thesis project, an autonomous smart sweeper, reflects my ability to design and develop hardware-software 
+          integrated systems. I also actively build embedded projects using Arduino, ESP modules, and various sensors, 
+          driven by my passion for automation and intelligent systems.
+        </p>
+
+        <p style="font-size: 1rem; font-weight: 300; color: rgba(255, 255, 255, 0.75);
+                  line-height: 1.8; margin: 0;">
+          I'm a problem-solver at heart, motivated by building technologies that create real-world impact. My goal is 
+          to grow as a full-stack and robotics engineer, contributing to innovative systems that bridge software and hardware.
+        </p>
+      </div>
+    </div>
+
+    <!-- Skills Section -->
+    <div style="animation: fade-up 0.8s ease 0.2s both;">
+      <h2 style="font-size: 2rem; font-weight: 700; margin: 0 0 3rem;
+                 letter-spacing: -0.01em;">Skills & Technologies</h2>
+
+      <div class="tech-icons"
+           style="display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: flex-start;">
+
+        <div class="skill-tag" style="padding: 0.8rem 1.5rem; border-radius: 20px; display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; font-weight: 500;">
+              <span>
+              <img src="html.webp" alt="HTML Icon" style="height: 1.2em; width: auto; vertical-align: middle;">
+              </span> 
+              HTML
+        </div>
+
+          <div class="skill-tag" style="padding: 0.8rem 1.5rem; border-radius: 20px; display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; font-weight: 500;">
+              <span>
+              <img src="css.webp" alt="CSS Icon" style="height: 1.2em; width: auto; vertical-align: middle;">
+              </span> 
+              CSS
+        </div>
+
+         <div class="skill-tag" style="padding: 0.8rem 1.5rem; border-radius: 20px; display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; font-weight: 500;">
+              <span>
+              <img src="java.webp" alt="JavaScript Icon" style="height: 1.2em; width: auto; vertical-align: middle;">
+              </span> 
+              JavaScript
+        </div>
+
+         <div class="skill-tag" style="padding: 0.8rem 1.5rem; border-radius: 20px; display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; font-weight: 500;">
+              <span>
+              <img src="ang.webp" alt="CSS Icon" style="height: 1.2em; width: auto; vertical-align: middle;">
+              </span> 
+              Angular
+        </div>
+
+         <div class="skill-tag" style="padding: 0.8rem 1.5rem; border-radius: 20px; display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; font-weight: 500;">
+              <span>
+              <img src="ts.png" alt="CSS Icon" style="height: 1.2em; width: auto; vertical-align: middle;">
+              </span> 
+              typeScript
+        </div>
+
+         <div class="skill-tag" style="padding: 0.8rem 1.5rem; border-radius: 20px; display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; font-weight: 500;">
+              <span>
+              <img src="c.png" alt="CSS Icon" style="height: 1.2em; width: auto; vertical-align: middle;">
+              </span> 
+              C++
+        </div>
+
+         <div class="skill-tag" style="padding: 0.8rem 1.5rem; border-radius: 20px; display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; font-weight: 500;">
+              <span>
+              <img src="tail.png" alt="Tailwind CSS Icon" style="height: 1.2em; width: auto; vertical-align: middle;">
+              </span> 
+              Tailwind CSS
+        </div>
+
+         <div class="skill-tag" style="padding: 0.8rem 1.5rem; border-radius: 20px; display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; font-weight: 500;">
+              <span>
+              <img src="git.png" alt="Github Icon" style="height: 1.2em; width: auto; vertical-align: middle;">
+              </span> 
+              Github
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Experience Cards -->
+    <div style="margin-top: 6rem; animation: fade-up 0.8s ease 0.3s both;">
+      <h2 style="font-size: 2rem; font-weight: 700; margin: 0 0 3rem;
+                 letter-spacing: -0.01em;">What I Do</h2>
+
+      <div class="experience-grid"
+           style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                  gap: 2rem; margin: 0;">
+
+       
+
+        <div class="experience-card" style="padding: 2.5rem; border-radius: 16px;">
+          <div style="font-size: 3rem; margin-bottom: 1rem;">⚙️</div>
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin: 0 0 1rem; letter-spacing: -0.01em;">Embedded Systems</h3>
+          <p style="font-size: 0.95rem; font-weight: 300; color: rgba(255, 255, 255, 0.65); line-height: 1.6; margin: 0;">
+            Designing and developing hardware-software integrated systems with Arduino, ESP modules, and various sensors
+          </p>
+        </div>
+
+        <div class="experience-card" style="padding: 2.5rem; border-radius: 16px;">
+          <div style="font-size: 3rem; margin-bottom: 1rem;">🎯</div>
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin: 0 0 1rem; letter-spacing: -0.01em;">UI/UX Design</h3>
+          <p style="font-size: 0.95rem; font-weight: 300; color: rgba(255, 255, 255, 0.65); line-height: 1.6; margin: 0;">
+            Creating user-centered interfaces with Tailwind CSS and modern design principles for responsive applications
+          </p>
+        </div>
+
+        <div class="experience-card" style="padding: 2.5rem; border-radius: 16px;">
+          <div style="font-size: 3rem; margin-bottom: 1rem;">🔌</div>
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin: 0 0 1rem; letter-spacing: -0.01em;">API Integration</h3>
+          <p style="font-size: 0.95rem; font-weight: 300; color: rgba(255, 255, 255, 0.65); line-height: 1.6; margin: 0;">
+            Working with Swagger documentation and integrating RESTful APIs for seamless data flow between systems
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- PROJECTS SECTION -->
+<section id="projects-section" style="background: linear-gradient(180deg, rgba(10, 8, 20, 1) 0%, rgba(15, 10, 30, 1) 100%);
+           padding: 6rem 2rem; position: relative; overflow: hidden;
+           font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+           color: #ffffff;">
+
+  <div style="max-width: 1200px; margin: 0 auto; position: relative; z-index: 1;">
+
+    <!-- Featured Project Section -->
+    <div style="margin-top: 0; animation: fade-up 0.8s ease 0.4s both;">
+      <h2 style="font-size: 2rem; font-weight: 700; margin: 0 0 3rem;
+                 letter-spacing: -0.01em;">Featured Project</h2>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+                  background: linear-gradient(135deg, rgba(124, 58, 237, 0.1) 0%, rgba(91, 33, 182, 0.08) 100%);
+                  border: 1px solid rgba(124, 58, 237, 0.3); border-radius: 16px; padding: 3rem;
+                  transition: all 0.4s ease;">
+
+        <!-- Left content -->
+        <div>
+          <p style="font-size: 0.9rem; font-weight: 500; color: #a78bfa;
+                    letter-spacing: 0.1em; margin: 0 0 1rem; text-transform: uppercase;">
+            Featured Project
+          </p>
+
+          <h3 style="font-size: 2.5rem; font-weight: 800; margin: 0 0 2rem;
+                     letter-spacing: -0.02em; line-height: 1.2;">
+            NeuraWeb – Futuristic AI Website Landing Design
+          </h3>
+
+          <p style="font-size: 1rem; font-weight: 300; color: rgba(255, 255, 255, 0.7);
+                    line-height: 1.8; margin: 0 0 2rem;">
+            A sleek, dark-themed AI-powered landing page concept built in Figma. Designed for modern startups 
+            and futuristic digital products, it features glowing neon visuals, immersive UI, and a dynamic tone. 
+            The design encapsulates the cutting-edge possibilities of AI and tech, offering a glimpse into the 
+            future of online experiences for tech-forward companies.
+          </p>
+
+          <button style="background: linear-gradient(135deg, #7c3aed, #6d28d9); color: #ffffff;
+                         border: none; padding: 0.9rem 2rem; border-radius: 8px;
+                         font-size: 0.95rem; font-weight: 500; cursor: pointer;
+                         transition: all 0.3s ease; letter-spacing: 0.05em;">
+            View Project
+          </button>
+        </div>
+
+        <!-- Right image placeholder -->
+        <div style="background: linear-gradient(135deg, rgba(124, 58, 237, 0.2) 0%, rgba(91, 33, 182, 0.15) 100%);
+                    border: 1px solid rgba(124, 58, 237, 0.4); border-radius: 12px;
+                    height: 400px; display: flex; align-items: center; justify-content: center;
+                    overflow: hidden;">
+          <img src="assets/featured-project.jpg" 
+               alt="NeuraWeb Featured Project"
+               style="width: 100%; height: 100%; object-fit: cover;" />
+        </div>
+
+      </div>
+
+      <style>
+        @media (max-width: 1024px) {
+          .featured-project-grid {
+            grid-template-columns: 1fr !important;
+            gap: 2rem !important;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .featured-project-title {
+            font-size: 1.8rem !important;
+          }
+        }
+      </style>
+
+    </div>
+
+  </div>
+
 </section>

@@ -35,12 +35,30 @@
     0%   { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
+
+  @media (max-width: 768px) {
+    .nav-desktop {
+      display: none !important;
+    }
+
+    .hamburger-btn {
+      display: flex !important;
+    }
+  }
+
+  @media (min-width: 769px) {
+    .hamburger-btn {
+      display: none !important;
+    }
+
+    .nav-mobile {
+      display: none !important;
+    }
+  }
 </style>
 
 <nav style="background: #0a0814; border-bottom: 1px solid rgba(255,255,255,0.08);
             position: fixed; top: 0; left: 0; width: 100%; z-index: 50;">
-
- 
 
   <!-- Nav row -->
   <div style="position: relative; max-width: 1400px; margin: 0 auto;
@@ -56,10 +74,10 @@
     </a>
 
     <!-- Desktop links -->
-    <ul class="nav-menu-list"
+    <ul class="nav-menu-list nav-desktop"
         style="display: flex; align-items: center; gap: 3rem; list-style: none; margin: 0; padding: 0;">
       <li>
-        <a routerLink="/home" routerLinkActive="active-nav" (click)="closeMenu()"
+        <a (click)="scrollToSection('hero-section'); closeMenu()"
            style="font-family: 'Inter', sans-serif; font-size: 0.95rem;
                   font-weight: 300; color: #ffffff;
                   letter-spacing: 0.08em; opacity: 0.85; cursor: pointer;
@@ -68,7 +86,7 @@
         </a>
       </li>
       <li>
-        <a routerLink="/about" routerLinkActive="active-nav" (click)="closeMenu()"
+        <a (click)="navigateAndScroll('about-section'); closeMenu()"
            style="font-family: 'Inter', sans-serif; font-size: 0.95rem;
                   font-weight: 300; color: #ffffff;
                   letter-spacing: 0.08em; opacity: 0.85; cursor: pointer;
@@ -77,7 +95,7 @@
         </a>
       </li>
       <li>
-        <a routerLink="/projects" routerLinkActive="active-nav" (click)="closeMenu()"
+        <a (click)="navigateAndScroll('projects-section'); closeMenu()"
            style="font-family: 'Inter', sans-serif; font-size: 0.95rem;
                   font-weight: 300; color: #ffffff;
                   letter-spacing: 0.08em; opacity: 0.85; cursor: pointer;
@@ -99,7 +117,7 @@
     <!-- Hamburger (mobile) -->
     <button (click)="toggleMenu()"
             class="hamburger-btn"
-            style="display: none; flex-direction: column; gap: 5px;
+            style="flex-direction: column; gap: 5px;
                    background: none; border: none; cursor: pointer; padding: 4px;"
             aria-label="Toggle menu">
       <span style="display: block; width: 24px; height: 1.5px; background: white; border-radius: 4px;"></span>
@@ -110,31 +128,32 @@
   </div>
 
   <!-- Mobile dropdown -->
-  <div [style.display]="menuOpen ? 'flex' : 'none'"
+  <div class="nav-mobile"
+       [style.display]="menuOpen ? 'flex' : 'none'"
        style="flex-direction: column; padding: 1rem 2.5rem 1.5rem;
               background: #0a0814; border-top: 1px solid rgba(255,255,255,0.08);">
     <ul class="nav-menu-list" style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column;">
       <li>
-        <a routerLink="/home" (click)="closeMenu()"
+        <a (click)="scrollToSection('hero-section'); closeMenu()"
            style="color:#fff; padding: 0.6rem 0.5rem; display: block;
                   font-family:'Inter',sans-serif; font-size:0.95rem;
-                  font-weight:300; letter-spacing:0.08em; opacity:0.85;">
+                  font-weight:300; letter-spacing:0.08em; opacity:0.85; cursor:pointer;">
           Home
         </a>
       </li>
       <li>
-        <a routerLink="/about" (click)="closeMenu()"
+        <a (click)="navigateAndScroll('about-section'); closeMenu()"
            style="color:#fff; padding: 0.6rem 0.5rem; display: block;
                   font-family:'Inter',sans-serif; font-size:0.95rem;
-                  font-weight:300; letter-spacing:0.08em; opacity:0.85;">
+                  font-weight:300; letter-spacing:0.08em; opacity:0.85; cursor:pointer;">
           About
         </a>
       </li>
       <li>
-        <a routerLink="/projects" (click)="closeMenu()"
+        <a (click)="navigateAndScroll('projects-section'); closeMenu()"
            style="color:#fff; padding: 0.6rem 0.5rem; display: block;
                   font-family:'Inter',sans-serif; font-size:0.95rem;
-                  font-weight:300; letter-spacing:0.08em; opacity:0.85;">
+                  font-weight:300; letter-spacing:0.08em; opacity:0.85; cursor:pointer;">
           Projects
         </a>
       </li>
@@ -151,5 +170,5 @@
 
 </nav>
 
-<!-- Spacer -->
+<!-- Spacer to account for fixed navbar -->
 <div style="height: 72px;"></div>

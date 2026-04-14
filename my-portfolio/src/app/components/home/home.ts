@@ -1,20 +1,20 @@
 import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { WorkExperienceComponent } from '../work-experience/work-experience';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
-  templateUrl: './home.html',
-  styleUrls: []
+  imports: [CommonModule, WorkExperienceComponent],
+  templateUrl: './home.html'
 })
 export class HomeComponent implements OnInit, OnDestroy {
 
   typedText = '';
 
-  private words    = ['Computer Engineer', 'UI/UX Designer', 'Frontend Engineer', 'Problem Solver'];
-  private wIndex   = 0;
-  private cIndex   = 0;
+  private words = ['Computer Engineer', 'UI/UX Designer', 'Frontend Developer', 'Problem Solver'];
+  private wIndex = 0;
+  private cIndex = 0;
   private deleting = false;
   private typingTimer: any;
 
@@ -51,7 +51,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
       if (this.cIndex === 0) {
         this.deleting = false;
-        this.wIndex   = (this.wIndex + 1) % this.words.length;
+        this.wIndex = (this.wIndex + 1) % this.words.length;
       }
     }
 
