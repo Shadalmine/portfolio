@@ -104,7 +104,7 @@
         </a>
       </li>
       <li>
-        <a routerLink="/contact" routerLinkActive="active-nav" (click)="closeMenu()"
+        <a (click)="navigateAndScroll('contact-section'); closeMenu()"
            style="font-family: 'Inter', sans-serif; font-size: 0.95rem;
                   font-weight: 300; color: #ffffff;
                   letter-spacing: 0.08em; opacity: 0.85; cursor: pointer;
@@ -112,6 +112,7 @@
           Contact
         </a>
       </li>
+
     </ul>
 
     <!-- Hamburger (mobile) -->
@@ -158,13 +159,14 @@
         </a>
       </li>
       <li>
-        <a routerLink="/contact" (click)="closeMenu()"
+        <a (click)="navigateAndScroll('contact-section'); closeMenu()"
            style="color:#fff; padding: 0.6rem 0.5rem; display: block;
                   font-family:'Inter',sans-serif; font-size:0.95rem;
-                  font-weight:300; letter-spacing:0.08em; opacity:0.85;">
+                  font-weight:300; letter-spacing:0.08em; opacity:0.85; cursor:pointer;">
           Contact
         </a>
       </li>
+
     </ul>
   </div>
 
