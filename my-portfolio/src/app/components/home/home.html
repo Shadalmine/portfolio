@@ -162,7 +162,7 @@
       <p class="fade-up-5"
          style="font-size: 1.05rem; font-weight: 300; color: rgba(255,255,255,0.75);
                 margin: 0 0 2rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-        Currently, I'm a Software Engineer at
+        Computer Engineer 
         <span style="display: inline-flex; align-items: center; gap: 0.4rem; color: #60a5fa; font-weight: 400;">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
                style="display:inline-block; vertical-align: middle;">
@@ -170,7 +170,7 @@
             <path d="M8 12a4 4 0 1 0 8 0 4 4 0 0 0-8 0" fill="#60a5fa" opacity="0.3"/>
             <circle cx="12" cy="12" r="2" fill="#60a5fa"/>
           </svg>
-          WebHR,
+          
         </span>
       </p>
 
@@ -178,7 +178,7 @@
       <p class="fade-up-6"
          style="font-size: 1.05rem; font-weight: 300; color: rgba(255,255,255,0.6);
                 line-height: 1.8; max-width: 600px; margin: 0;">
-        A self-taught UI/UX designer, functioning in the industry for 3+ years now. 
+        A self-taught UI/UX designer, with a passion for creating intuitive and engaging user experiences. 
         I make meaningful and delightful digital products that create
         an equilibrium between user needs and business goals.
       </p>
@@ -379,18 +379,27 @@
         </div>
 
         <!-- Right image placeholder -->
-        <div style="background: linear-gradient(135deg, rgba(124, 58, 237, 0.2) 0%, rgba(91, 33, 182, 0.15) 100%);
-                    border: 1px solid rgba(124, 58, 237, 0.4); border-radius: 12px;
-                    height: 400px; display: flex; align-items: center; justify-content: center;
-                    overflow: hidden;">
-          <img src="project.jpg" 
-               alt="NeuraWeb Featured Project"
-               style="width: 100%; height: 100%; object-fit: cover;" />
-        </div>
+        <div class="project-card-container" 
+     style="background: linear-gradient(135deg, rgba(124, 58, 237, 0.2) 0%, rgba(91, 33, 182, 0.15) 100%);
+            border: 1px solid rgba(124, 58, 237, 0.4); border-radius: 12px;
+            height: 400px; display: flex; align-items: center; justify-content: center;
+            overflow: hidden; cursor: pointer;">
+  <img class="project-zoom-img"
+       src="project.jpg" 
+       alt="NeuraWeb Featured Project"
+       style="width: 100%; height: 100%; object-fit: cover; object-position: top center; 
+              transform: scale(1.15); transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);" />
+</div>
 
       </div>
 
       <style>
+        .project-zoom-img {
+    transform: scale(4.15);
+  }
+        .project-card-container:hover .project-zoom-img {
+    transform: scale(1) !important;
+  }
         @media (max-width: 1024px) {
           .featured-project-grid {
             grid-template-columns: 1fr !important;

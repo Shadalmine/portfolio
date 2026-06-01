@@ -16,12 +16,7 @@ export class WorkExperienceComponent {
       icon: '⭐',
       iconBg: 'linear-gradient(135deg, #7c3aed, #6d28d9)'
     },
-    {
-      title: 'Freelance UI/UX Designer',
-      desc: "Designed responsive websites and mobile UI for small businesses. Developed user-friendly interfaces based on client requirements.",
-      icon: '🌅',
-      iconBg: 'linear-gradient(135deg, #fb923c, #f97316)'
-    },
+    
     {
       title: 'Autonomous Smart Sweeper Robot - Capstone Project',
       desc: "Collaborated with a multidisciplinary team of engineers to integrate design with hardware functionality. Implemented control logic and assisted in hardware-software integration.",
