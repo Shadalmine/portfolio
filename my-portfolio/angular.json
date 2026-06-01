@@ -22,7 +22,8 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              }
+              },
+              "src/Resume.pdf"
             ],
             "styles": [
               "src/styles.css"

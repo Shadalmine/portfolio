@@ -60,12 +60,10 @@
 <nav style="background: #0a0814; border-bottom: 1px solid rgba(255,255,255,0.08);
             position: fixed; top: 0; left: 0; width: 100%; z-index: 50;">
 
-  <!-- Nav row -->
   <div style="position: relative; max-width: 1400px; margin: 0 auto;
               padding: 0 2.5rem; height: 72px;
               display: flex; align-items: center; justify-content: space-between;">
 
-    <!-- Logo -->
     <a routerLink="/home" (click)="closeMenu()"
        style="font-family: 'Dancing Script', cursive; font-size: 2rem;
               font-weight: 500; color: #ffffff; text-decoration: none;
@@ -73,7 +71,6 @@
       Shadrach
     </a>
 
-    <!-- Desktop links -->
     <ul class="nav-menu-list nav-desktop"
         style="display: flex; align-items: center; gap: 3rem; list-style: none; margin: 0; padding: 0;">
       <li>
@@ -112,10 +109,19 @@
           Contact
         </a>
       </li>
-
+      <li>
+        <a href="/Resume.pdf" 
+           download="Resume.pdf"
+           (click)="closeMenu()"
+           style="font-family: 'Inter', sans-serif; font-size: 0.95rem;
+                  font-weight: 300; color: #ffffff;
+                  letter-spacing: 0.08em; opacity: 0.85; cursor: pointer;
+                  transition: opacity 0.2s ease; padding: 6px 10px; border-radius: 6px;">
+          Download CV
+        </a>
+      </li>
     </ul>
 
-    <!-- Hamburger (mobile) -->
     <button (click)="toggleMenu()"
             class="hamburger-btn"
             style="flex-direction: column; gap: 5px;
@@ -128,7 +134,6 @@
 
   </div>
 
-  <!-- Mobile dropdown -->
   <div class="nav-mobile"
        [style.display]="menuOpen ? 'flex' : 'none'"
        style="flex-direction: column; padding: 1rem 2.5rem 1.5rem;
@@ -166,11 +171,19 @@
           Contact
         </a>
       </li>
-
+      <li>
+        <a href="/Resume.pdf" 
+           download="Resume.pdf"
+           (click)="closeMenu()"
+           style="color:#fff; padding: 0.6rem 0.5rem; display: block;
+                  font-family:'Inter',sans-serif; font-size:0.95rem;
+                  font-weight:300; letter-spacing:0.08em; opacity:0.85; cursor:pointer;">
+          Download CV
+        </a>
+      </li>
     </ul>
   </div>
 
 </nav>
 
-<!-- Spacer to account for fixed navbar -->
 <div style="height: 72px;"></div>

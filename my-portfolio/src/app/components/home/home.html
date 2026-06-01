@@ -84,38 +84,72 @@
     box-shadow: 0 20px 60px rgba(124, 58, 237, 0.15);
   }
 
+  .project-zoom-img {
+    transform: scale(1.15);
+  }
+
+  .project-card-container:hover .project-zoom-img {
+    transform: scale(1) !important;
+  }
+
+  /* --- RESPONSIVE MEDIA QUERIES --- */
+  @media (max-width: 1024px) {
+    .featured-project-grid {
+      grid-template-columns: 1fr !important;
+      gap: 2.5rem !important;
+      padding: 2rem !important;
+    }
+    
+    .project-card-container {
+      height: 320px !important;
+    }
+  }
+
   @media (max-width: 768px) {
+    #hero-section {
+      padding: 4rem 1.25rem 3rem !important;
+    }
+
+    .hero-top-block {
+      justify-content: center;
+      text-align: center;
+      gap: 1.5rem !important;
+    }
+
+    .featured-project-title {
+      font-size: 1.8rem !important;
+    }
+
     .experience-grid {
       grid-template-columns: 1fr !important;
     }
 
     .tech-icons {
-      flex-wrap: wrap;
-      justify-content: center;
+      justify-content: center !important;
+    }
+
+    #contact-section h2 {
+      font-size: 2.5rem !important;
     }
   }
 </style>
 
-<!-- HERO SECTION -->
-<section id="hero-section" style="background: #0a0814; min-height: 100vh; padding: 5rem 2rem 4rem;
-                font-family: 'Inter', sans-serif; color: #ffffff;">
+<section id="hero-section" style="background: #0a0814; min-height: 100vh; padding: 6rem 2rem 4rem;
+                font-family: 'Inter', sans-serif; color: #ffffff; display: flex; align-items: center;">
 
-  <div style="max-width: 1100px; margin: 0 auto;">
+  <div style="width: 100%; max-width: 1100px; margin: 0 auto;">
 
-    <!-- Top block: avatar + headline -->
-    <div style="display: flex; align-items: flex-start; gap: 2.5rem; margin-bottom: 4rem; flex-wrap: wrap;">
+    <div class="hero-top-block" style="display: flex; align-items: center; gap: 2.5rem; margin-bottom: 4rem; flex-wrap: wrap;">
 
-      <!-- Avatar -->
       <div class="avatar-glow fade-up-1"
            style="flex-shrink: 0; width: 160px; height: 160px; border-radius: 50%; overflow: hidden;
                   background: linear-gradient(135deg, #1e1040, #2d1b69);
-                  display: flex; align-items: center; justify-content: center;">
+                  display: flex; align-items: center; justify-content: center; margin: 0 auto;">
         <img src="av.png"
              alt="Avatar"
              style="width: 100%; height: 100%; object-fit: cover;" />
       </div>
 
-      <!-- Headline text -->  
       <div style="flex: 1; min-width: 280px;">
         <p class="fade-up-2"
            style="font-size: 1.1rem; font-weight: 300; color: rgba(255,255,255,0.7);
@@ -124,13 +158,13 @@
         </p>
 
         <h1 class="fade-up-3"
-            style="font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 800;
+            style="font-size: clamp(2.5rem, 5.5vw, 4.5rem); font-weight: 800;
                    line-height: 1.1; margin: 0 0 0.25rem; letter-spacing: -0.02em;">
           Judges a book
         </h1>
 
         <h1 class="fade-up-3"
-            style="font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 800;
+            style="font-size: clamp(2.5rem, 5.5vw, 4.5rem); font-weight: 800;
                    line-height: 1.1; margin: 0 0 1rem; letter-spacing: -0.02em;">
           by its <span class="cover-word">cover</span>...
         </h1>
@@ -144,24 +178,20 @@
 
     </div>
 
-    <!-- Divider -->
     <hr class="fade-up-4"
         style="border: none; border-top: 1px solid rgba(255,255,255,0.08); margin-bottom: 3rem;">
 
-    <!-- Bottom block: typing + description -->
     <div>
 
-      <!-- Typing headline -->
       <h2 class="fade-up-5"
-          style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 800;
-                 margin: 0 0 1rem; letter-spacing: -0.02em; display: flex; align-items: center;">
+          style="font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 800;
+                 margin: 0 0 1rem; letter-spacing: -0.02em; display: flex; align-items: center; justify-content: inherit;">
         I'm a {{ typedText }}<span class="cursor"></span>
       </h2>
 
-      <!-- Currently at -->
       <p class="fade-up-5"
          style="font-size: 1.05rem; font-weight: 300; color: rgba(255,255,255,0.75);
-                margin: 0 0 2rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                margin: 0 0 2rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; justify-content: inherit;">
         Computer Engineer 
         <span style="display: inline-flex; align-items: center; gap: 0.4rem; color: #60a5fa; font-weight: 400;">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
@@ -170,14 +200,12 @@
             <path d="M8 12a4 4 0 1 0 8 0 4 4 0 0 0-8 0" fill="#60a5fa" opacity="0.3"/>
             <circle cx="12" cy="12" r="2" fill="#60a5fa"/>
           </svg>
-          
         </span>
       </p>
 
-      <!-- Description -->
       <p class="fade-up-6"
          style="font-size: 1.05rem; font-weight: 300; color: rgba(255,255,255,0.6);
-                line-height: 1.8; max-width: 600px; margin: 0;">
+                line-height: 1.8; max-width: 600px; margin: 0 auto 0 0;">
         A self-taught UI/UX designer, with a passion for creating intuitive and engaging user experiences. 
         I make meaningful and delightful digital products that create
         an equilibrium between user needs and business goals.
@@ -188,16 +216,13 @@
   </div>
 </section>
 
-<!-- Work Experience Component -->
 <app-work-experience></app-work-experience>
 
-<!-- ABOUT SECTION -->
 <section id="about-section" style="background: linear-gradient(180deg, rgba(10, 8, 20, 1) 0%, rgba(15, 10, 30, 1) 100%);
-           padding: 6rem 2rem; position: relative; overflow: hidden;
+           padding: 6rem 1.25rem; position: relative; overflow: hidden;
            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
            color: #ffffff;">
 
-  <!-- Background animated elements -->
   <div style="position: absolute; top: -50%; right: -20%; width: 600px; height: 600px;
               background: radial-gradient(circle, rgba(124, 58, 237, 0.1) 0%, transparent 70%);
               border-radius: 50%; animation: float 10s ease-in-out infinite;
@@ -208,16 +233,8 @@
               border-radius: 50%; animation: float 12s ease-in-out infinite;
               pointer-events: none;"></div>
 
-  <style>
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-20px); }
-    }
-  </style>
-
   <div style="max-width: 1200px; margin: 0 auto; position: relative; z-index: 1;">
 
-    <!-- About Me Content -->
     <div style="max-width: 900px; margin: 0 auto 6rem; animation: fade-up 0.8s ease both;">
       <h1 style="font-size: 2.5rem; font-weight: 800; margin: 0 0 2rem;
                  letter-spacing: -0.02em;">About Me</h1>
@@ -229,8 +246,6 @@
           During my internship at Liteclerk Corporation, I worked on enhancing and developing user interfaces using 
           Tailwind CSS, while building scalable frontend applications with Angular and TypeScript.
         </p>
-
-      
 
         <p style="font-size: 1rem; font-weight: 300; color: rgba(255, 255, 255, 0.75);
                   line-height: 1.8; margin: 0;">
@@ -247,13 +262,12 @@
       </div>
     </div>
 
-    <!-- Skills Section -->
     <div style="animation: fade-up 0.8s ease 0.2s both;">
       <h2 style="font-size: 2rem; font-weight: 700; margin: 0 0 3rem;
                  letter-spacing: -0.01em;">Skills & Technologies</h2>
 
       <div class="tech-icons"
-           style="display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: flex-start;">
+           style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: flex-start;">
 
         <div class="skill-tag" style="padding: 0.8rem 1.5rem; border-radius: 20px; display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; font-weight: 500;">
           <span>🏗️</span> HTML
@@ -290,7 +304,6 @@
       </div>
     </div>
 
-    <!-- Experience Cards -->
     <div style="margin-top: 6rem; animation: fade-up 0.8s ease 0.3s both;">
       <h2 style="font-size: 2rem; font-weight: 700; margin: 0 0 3rem;
                  letter-spacing: -0.01em;">What I Do</h2>
@@ -298,8 +311,6 @@
       <div class="experience-grid"
            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
                   gap: 2rem; margin: 0;">
-
-       
 
         <div class="experience-card" style="padding: 2.5rem; border-radius: 16px;">
           <div style="font-size: 3rem; margin-bottom: 1rem;">⚙️</div>
@@ -329,35 +340,31 @@
     </div>
 
   </div>
-
 </section>
 
-<!-- PROJECTS SECTION -->
 <section id="projects-section" style="background: linear-gradient(180deg, rgba(10, 8, 20, 1) 0%, rgba(15, 10, 30, 1) 100%);
-           padding: 6rem 2rem; position: relative; overflow: hidden;
+           padding: 6rem 1.25rem; position: relative; overflow: hidden;
            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
            color: #ffffff;">
 
   <div style="max-width: 1200px; margin: 0 auto; position: relative; z-index: 1;">
 
-    <!-- Featured Project Section -->
     <div style="margin-top: 0; animation: fade-up 0.8s ease 0.4s both;">
       <h2 style="font-size: 2rem; font-weight: 700; margin: 0 0 3rem;
                  letter-spacing: -0.01em;">Featured Project</h2>
 
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+      <div class="featured-project-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
                   background: linear-gradient(135deg, rgba(124, 58, 237, 0.1) 0%, rgba(91, 33, 182, 0.08) 100%);
                   border: 1px solid rgba(124, 58, 237, 0.3); border-radius: 16px; padding: 3rem;
                   transition: all 0.4s ease;">
 
-        <!-- Left content -->
         <div>
           <p style="font-size: 0.9rem; font-weight: 500; color: #a78bfa;
                     letter-spacing: 0.1em; margin: 0 0 1rem; text-transform: uppercase;">
             Featured Project
           </p>
 
-          <h3 style="font-size: 2.5rem; font-weight: 800; margin: 0 0 2rem;
+          <h3 class="featured-project-title" style="font-size: 2.5rem; font-weight: 800; margin: 0 0 2rem;
                      letter-spacing: -0.02em; line-height: 1.2;">
             KAMISITA E-CLOTHING WEBSITE DESIGN 
           </h3>
@@ -367,148 +374,116 @@
             A sophisticated fashion destination designed for the modern generation. 
             Combining sleek aesthetics, bold imagery, and an intuitive shopping journey, the platform celebrates self-expression through contemporary streetwear. 
             Every element is thoughtfully crafted to create an immersive browsing experience that reflects confidence, creativity, and the evolving culture of modern fashion.
-
           </p>
-
-          <button style="background: linear-gradient(135deg, #7c3aed, #6d28d9); color: #ffffff;
-                         border: none; padding: 0.9rem 2rem; border-radius: 8px;
-                         font-size: 0.95rem; font-weight: 500; cursor: pointer;
-                         transition: all 0.3s ease; letter-spacing: 0.05em;">
-            View Project
-          </button>
+          
+          <a href="https://6a1cf5c20a9afd84136cfff8--kamisitas.netlify.app/" target="_blank" style="text-decoration: none;">
+            <button style="background: linear-gradient(135deg, #7c3aed, #6d28d9); color: #ffffff;
+                           border: none; padding: 0.9rem 2rem; border-radius: 8px;
+                           font-size: 0.95rem; font-weight: 500; cursor: pointer;
+                           transition: all 0.3s ease; letter-spacing: 0.05em; width: auto;" >
+              View Project
+            </button>
+          </a>
         </div>
 
-        <!-- Right image placeholder -->
         <div class="project-card-container" 
-     style="background: linear-gradient(135deg, rgba(124, 58, 237, 0.2) 0%, rgba(91, 33, 182, 0.15) 100%);
-            border: 1px solid rgba(124, 58, 237, 0.4); border-radius: 12px;
-            height: 400px; display: flex; align-items: center; justify-content: center;
-            overflow: hidden; cursor: pointer;">
-  <img class="project-zoom-img"
-       src="project.jpg" 
-       alt="NeuraWeb Featured Project"
-       style="width: 100%; height: 100%; object-fit: cover; object-position: top center; 
-              transform: scale(1.15); transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);" />
-</div>
+             style="background: linear-gradient(135deg, rgba(124, 58, 237, 0.2) 0%, rgba(91, 33, 182, 0.15) 100%);
+                    border: 1px solid rgba(124, 58, 237, 0.4); border-radius: 12px;
+                    height: 400px; display: flex; align-items: center; justify-content: center;
+                    overflow: hidden; cursor: pointer; width: 100%;">
+          <img class="project-zoom-img"
+               src="project.jpg" 
+               alt="Kamisita Featured Project"
+               style="width: 100%; height: 100%; object-fit: cover; object-position: top center; 
+                      transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);" />
+        </div>
 
       </div>
-
-      <style>
-        .project-zoom-img {
-    transform: scale(4.15);
-  }
-        .project-card-container:hover .project-zoom-img {
-    transform: scale(1) !important;
-  }
-        @media (max-width: 1024px) {
-          .featured-project-grid {
-            grid-template-columns: 1fr !important;
-            gap: 2rem !important;
-          }
-        }
-
-        @media (max-width: 768px) {
-          .featured-project-title {
-            font-size: 1.8rem !important;
-          }
-        }
-      </style>
 
     </div>
 
   </div>
-
 </section>
 
-<!-- CONTACT SECTION -->
 <section id="contact-section" style="background: linear-gradient(180deg, rgba(10, 8, 20, 1) 0%, rgba(15, 10, 30, 1) 100%);
-           padding: 8rem 2rem; position: relative; overflow: hidden;
+           padding: 8rem 1.25rem; position: relative; overflow: hidden;
            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
            color: #ffffff; text-align: center;">
 
   <div style="max-width: 1000px; margin: 0 auto; position: relative; z-index: 1;">
 
-    <!-- Contact Heading -->
-    <h2 style="font-size: 3.5rem; font-weight: 800; margin: 0 0 2rem;
+    <h2 style="font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 800; margin: 0 0 2rem;
                letter-spacing: -0.02em; animation: fade-up 0.8s ease both;">
       Contact
     </h2>
 
-    <!-- Contact Description -->
-    <p style="font-size: 1.2rem; font-weight: 300; color: rgba(255, 255, 255, 0.75);
+  <p style="font-size: 1.15rem; font-weight: 300; color: rgba(255, 255, 255, 0.75);
               line-height: 1.8; margin: 0 0 3rem; max-width: 800px; margin-left: auto; margin-right: auto;
               animation: fade-up 0.8s ease 0.2s both;">
       I'm currently looking to join a cross-functional team that values improving people's 
       lives through accessible design, or have a project in mind? Let's connect.
     </p>
 
-    <!-- Email -->
-    <a href="https://mail.google.com/mail/u/0/#inbox" 
-       style="display: inline-block; font-size: 1.3rem; font-weight: 400; color: #ffffff;
+    <a href="mailto:dashchar924@gmail.com" 
+       style="display: inline-block; font-size: clamp(1.1rem, 3vw, 1.3rem); font-weight: 400; color: #ffffff;
               text-decoration: none; margin: 0 0 3rem; transition: color 0.3s ease;
-              animation: fade-up 0.8s ease 0.3s both;"
+              animation: fade-up 0.8s ease 0.3s both; word-break: break-all;"
        onmouseover="this.style.color='#a78bfa'"
        onmouseout="this.style.color='#ffffff'">
       dashchar924@gmail.com
     </a>
 
-    <!-- Social Links -->
-    <div style="display: flex; justify-content: center; gap: 2rem; margin: 0 0 6rem;
-                animation: fade-up 0.8s ease 0.4s both;">
+    <div style="display: flex; justify-content: center; gap: 1.5rem; margin: 0 0 6rem;
+                animation: fade-up 0.8s ease 0.4s both; flex-wrap: wrap;">
 
-      <!-- Instagram -->
       <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
          style="display: inline-flex; align-items: center; justify-content: center;
-                width: 60px; height: 60px; border-radius: 50%;
+                width: 55px; height: 55px; border-radius: 50%;
                 background: linear-gradient(135deg, rgba(124, 58, 237, 0.2) 0%, rgba(91, 33, 182, 0.1) 100%);
                 border: 1px solid rgba(124, 58, 237, 0.4);
                 transition: all 0.3s ease; text-decoration: none;"
          onmouseover="this.style.background='linear-gradient(135deg, rgba(124, 58, 237, 0.4) 0%, rgba(91, 33, 182, 0.3) 100%)'; this.style.borderColor='rgba(124, 58, 237, 0.8)';"
          onmouseout="this.style.background='linear-gradient(135deg, rgba(124, 58, 237, 0.2) 0%, rgba(91, 33, 182, 0.1) 100%)'; this.style.borderColor='rgba(124, 58, 237, 0.4)';">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" style="color: #ffffff;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="color: #ffffff;">
           <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.266.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.322a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z"/>
         </svg>
       </a>
 
-      <!-- GitHub -->
       <a href="https://github.com" target="_blank" rel="noopener noreferrer"
          style="display: inline-flex; align-items: center; justify-content: center;
-                width: 60px; height: 60px; border-radius: 50%;
+                width: 55px; height: 55px; border-radius: 50%;
                 background: linear-gradient(135deg, rgba(124, 58, 237, 0.2) 0%, rgba(91, 33, 182, 0.1) 100%);
                 border: 1px solid rgba(124, 58, 237, 0.4);
                 transition: all 0.3s ease; text-decoration: none;"
          onmouseover="this.style.background='linear-gradient(135deg, rgba(124, 58, 237, 0.4) 0%, rgba(91, 33, 182, 0.3) 100%)'; this.style.borderColor='rgba(124, 58, 237, 0.8)';"
          onmouseout="this.style.background='linear-gradient(135deg, rgba(124, 58, 237, 0.2) 0%, rgba(91, 33, 182, 0.1) 100%)'; this.style.borderColor='rgba(124, 58, 237, 0.4)';">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" style="color: #ffffff;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="color: #ffffff;">
           <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
         </svg>
       </a>
 
-      <!-- LinkedIn -->
       <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
          style="display: inline-flex; align-items: center; justify-content: center;
-                width: 60px; height: 60px; border-radius: 50%;
+                width: 55px; height: 55px; border-radius: 50%;
                 background: linear-gradient(135deg, rgba(124, 58, 237, 0.2) 0%, rgba(91, 33, 182, 0.1) 100%);
                 border: 1px solid rgba(124, 58, 237, 0.4);
                 transition: all 0.3s ease; text-decoration: none;"
          onmouseover="this.style.background='linear-gradient(135deg, rgba(124, 58, 237, 0.4) 0%, rgba(91, 33, 182, 0.3) 100%)'; this.style.borderColor='rgba(124, 58, 237, 0.8)';"
          onmouseout="this.style.background='linear-gradient(135deg, rgba(124, 58, 237, 0.2) 0%, rgba(91, 33, 182, 0.1) 100%)'; this.style.borderColor='rgba(124, 58, 237, 0.4)';">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" style="color: #ffffff;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="color: #ffffff;">
           <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.475-2.236-1.986-2.236-1.081 0-1.722.722-2.004 1.418-.103.249-.129.597-.129.946v5.441h-3.554s.047-8.733 0-9.636h3.554v1.364c.431-.666 1.199-1.617 2.922-1.617 2.135 0 3.751 1.395 3.751 4.399v5.49zM5.337 9.432c-1.144 0-1.915-.762-1.915-1.715 0-.955.77-1.715 1.964-1.715 1.192 0 1.915.76 1.937 1.715 0 .953-.745 1.715-1.986 1.715zm1.582 11.02H3.656V9.816h3.263v10.636zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/>
         </svg>
       </a>
 
     </div>
 
-    <!-- Divider -->
     <hr style="border: none; border-top: 1px solid rgba(255, 255, 255, 0.08); margin: 0 0 2rem;
                animation: fade-up 0.8s ease 0.5s both;">
 
-    <!-- Footer -->
     <p style="font-size: 0.95rem; font-weight: 300; color: rgba(255, 255, 255, 0.55);
               margin: 0; letter-spacing: 0.01em;
               animation: fade-up 0.8s ease 0.6s both;">
-      © 2025 Shadrach Almine. All rights reserved.
+      © 2026 Shadrach Almine. All rights reserved.
     </p>
 
   </div>
